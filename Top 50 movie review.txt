@@ -1,0 +1,194 @@
+1. Database create:- 
+create database reviewdb;
+
+
+
+
+2.Use database:- 
+use reviewdb;
+
+
+
+
+3.Reviewer table created:- 
+
+create table reviewer(Id int primary key auto_increment,First_Name varchar(50),Last_Name varchar(50));
+
+
+
+
+
+4. Movie table created:- 
+
+create table movie(Id int primary key auto_increment,Title varchar(70) not null,Released_Date year(4) not null,Runtime varchar(20) not null,Genre varchar(30));
+
+
+
+
+5. Reviews table created:- 
+
+create table reviews (Id int primary key auto_increment,Rating double, Movie_Id int,Reviewer_Id int,
+    foreign key (Movie_Id) references movie(Id),
+    foreign key (Reviewer_Id) references  reviewer(Id));
+
+
+
+
+5.movie_info table created:- 
+
+create table movie_info(Id int primary key auto_increment,Movie_Id int,Actor_First_name varchar(40),Actor_last_name varchar(40), Actress_first_name varchar(40),Actress_last_name varchar(40),Director_first_name varchar(20),Director_last_name varchar(20),
+foreign key (Movie_Id) references Movie(Id));
+
+
+
+
+
+
+
+
+6.Insert value reviewer:-
+1.insert into reviewer(First_Name , Last_Name) values ('Shubhra','Gupta'),
+    ('Anupama','Chopra'),('Madhureeta','Mukherjee'),
+    ('Christine','Iyer'),('Michael','Dequina'),
+    ('Namrate','Joshi'),('Shamaila','Khan');
+
+2. insert into reviewer(First_Name , Last_Name) values ('Siddhan','Adlakha'),
+    ('Jonathan','Curiel'),('David','Parkinson'),('Gary','Wolcott'),
+    ('Michael','Dequina'),('Jimmy','Cage'),('Peter','Galvin'),
+    ('Mayank','Shekhar'),('Peter','Bradshaw'),('Dave','Kehar'),
+    ('Jay','Boyer'),('Gautaman','Bhaskaran'),('Rahul','Desai'),
+    ('Meena','Iyer'),('David','Parkinson'),('Sukanya','Verma'),
+    ('Manish','Gajjar'),('Saibal','Chatterjee'),('Kate','Taylor');
+
+3.insert into reviewer(First_Name , Last_Name) values ('Mike','Mccahill'),
+    ('Peter','Galvin'),('Justine','Elias'),('Anil','Sianan'),('Joshua','Land'),
+    ('Jaspreet','Pandohar'),('Joe','Bendel'),('Rahul','Verma'),('Nikhat','Kazmi'),
+    ('Avijit','Ghosh'),('Aarti','Jhurani'),('Jamie','Russell');
+
+
+
+
+
+
+6.Insert value movie:- 
+
+insert into movie (Title,Released_Date,Runtime,Genre) values('Aashiqui 2',2013,'2h20m','Drama,Musical'),
+('Shaadi ke side effects',2014,'2h25m','Romance,Comedy'); 
+
+
+6.Insert value movie:-
+insert into movie (Title,Released_Date,Runtime,Genre) values('Kabhi Khushi Kabhie Gham',2001,'3h29m','Comedy,Drama'),
+('The Emperor of mughals',1960,'2h53m','Drama'),('Swades',2004,'3h15m','Drama'),('Golmaal 3',2010,'2h19m','Comedy'),
+('Salaam bombay',1988,'1h53m','Drama'),('I',2015,'3h8m','Romance,Mystery,Thriller'),('Ankur',1974,'2h11m','Drama,Romance'),
+('Once upon a time in mumbai',2010,'2h15m','Crime,Drama'),('My name is khan',2010,'2h45m','Drama'),('Special 26',2013,'2h24m','Crime,Drama'),
+('Kai po che',2013,'2h6m','Drama'),('Kuch kuch hota hai',1998,'2h57m','Romance'),('Piku',2015,'2h15m','Comedy'),('Dabangg',2010,'2h6m','Action'),
+('Tees maar kahn',2010,'2h15m','Comedy'),('Kabhi alvida naa kehna',2006,'3h13m','Romance'),('Luck by chance',2009,'2h36m','Mystery,Thriller'),
+('Jodhaa akbar',2008,'3h33m','History,Drama'),('Jhoom barabar jhoom',2007,'2h18m','Comedy'),('taare zameen par',2007,'2h45m','Drama'),
+('Dostana',2008,'2h25m','Romance,Comedy'),('Range de basanti',2006,'2h40m','Comedy,Drama'),('Gange of wasseypur',2012,'5h17m','Crime,Drama'),
+('Om shanti om',2007,'2h48m','Romance'),('Agneepath',2012,'2h54m','Action'),('Ghajini',2008,'3h4m','Mystery,Thriller'),('Barfi!',2012,'2h30m','Comedy,Drama'),
+('Jai ho',2014,'2h12m','Action,Drama'),('Rowdy rathore',2012,'2h23m','Action,Comedy'),('jab tak hai jaan',2012,'2h56m','Drama,Romance'),
+('Robot',2010,'3h','Action,Fantasy'),('Ek tha tiger',2012,'2h13m','Action,Romance'),('Bullett raja',2013,'2h16m','Action,Crime'),
+('Shamitabh',2015,'2h35m','Comedy,Drama'),('Ungli',2014,'1h54m','Comedy'),('Haider',2014,'2h39m','Drama'),('Yeh jawaani hai deewani',2013,'2h40m','Romance,Drama'),
+('No one killed jessica',2011,'2h17m','Crime,Drama'),('Raanjhnaa',2013,'2h20m','Romance,Drama'),('Dhoom 2',2006,'2h32m','Action,Mystery and Thriller'),
+('Mardaani',2014,'2h32m','Action,Mystery and Thriller'),('Dhoom 3',2013,'2h53m','Action,Mystery and Thriller'),('Kyon ho gaya na',2004,'2h52m','Romance,Comedy');
+
+
+
+
+
+
+
+7. insert value reviews:-
+
+insert into reviews (Rating,Movie_Id,Reviewer_Id) values(2,1,1),(2.5,1,2),(3.5,1,3);
+
+
+7. insert value reviews:- 
+
+insert into reviews (Rating,Movie_Id,Reviewer_Id) values(3,2,4),(2,2,5),(3,3,6),(4,3,7),(3,4,8),(3,4,9),(4,4,10),(4,5,11),(3.5,5,12),(4,5,13),
+(2,6,6),(3,6,14),(1.5,6,15),(4,7,16),(3,7,17),(3,7,18),(2,8,19),(3,8,20),(3.5,8,21),(3.5,9,13),(4,9,22),(2,10,1),(3,10,15),(2,10,6),(4,11,1),(3,11,23),(4,11,24),
+(3.5,12,2),(4,12,25),(3.5,12,23),(3.5,13,1),(2,13,26),(3,13,6),(2,14,10),(3,14,1),(4,15,2),(2.5,15,1),(3,15,27),(3,16,2),(2.5,16,1),(2,16,6),(1.5,17,1),(2.5,17,28),
+(2,17,2),(2,18,6),(2,18,29),(3,19,2),(4,19,1),(3,20,2),(3,20,6),(4,20,30),(2,21,1),(2,21,2),(2,21,31),(4,22,1),(4,22,32),(2,23,1),(2,23,6),(4,24,1),(5,24,32),(4,25,1),(4,25,1),(4,25,33),(4,25,34),(3,26,1),(4,26,30),
+(3.5,26,35),(3,27,1),(3.5,27,36),(2,27,6),(4,28,2),(3.5,28,1),(3.5,28,23),(3,29,1),(2.5,29,6),(3,29,2),(1.5,30,1),(1,30,30),(3.5,30,2),(1,31,2),(2,31,2),(2,31,1),(3,32,2),(2,32,6),(2.5,32,1),(3.5,33,2),
+(2,34,6),(3,34,2),(3,34,1),(2.5,35,2),(3,36,30),(2,36,6),(2,36,1),(0.5,37,1),(2,37,2),(2,38,1),(3,38,30),(2.5,39,2),(2,39,1),(4,39,30),(3,40,2),(3,40,1),(3.5,41,2),(2.5,41,1),(3,41,6),(3,42,6),
+(3.5,42,1),(3,43,2),(2,43,1),(2,43,37),(3,44,2),(2,44,6),(2,44,1),(2.5,45,2),(3,45,38),(3,45,16);
+
+
+
+
+
+
+
+
+8.Insert into movie_info:-
+insert into movie_info(Movie_Id,Actor_first_name,Actor_last_name,actress_first_name,actress_last_name,Director_first_name,Director_last_name)
+    values(1,'Aditya rao','Kapoor','Sharddha','Kapoor','Mohit','Suri'),(2,'Farhan','Akhtar','Vidya','Balan','Saket','Chaudhary'),
+(3,'Shahrukh','Khan','Kajol','Devgan','Karan','Johar'),(4,'Dilip','Kumar','madhubala',null,'k.','Asif'),
+(5,'Shahrukh','Khan','Gaytari','Joshi','Asutosh','Gowariker'),(6,'Ajay','Devgan','Kareena','Kapoor','Rohit','Shetty'),
+(7,'Shafiq','Syed','Hansa','Vithal','Mira','Nair'),(8,'vikram','null','Amy','Jackson','S.','Shankar'),
+(9,'Anant','Nag','Shabana','Azmi','Shyam','Benegal'),(10,'Ajay','Devgan','Kangana','Ranaut','Milan','Luthria'),
+(11,'Shahrukh','Khan','Kajol','Devgan','Karan','Johar'),
+(12,'Akshay','Kumar','Kajal','Aggarwal','Neeraj','Pandey'),(13,'Sushant','Singh','null','null','Abhishek','Kapoor'),
+(14,'Sahrukh','Khan','Kajol','Devgan','Karan','Johar'),
+(15,'Amitabh','Bachchan','Deepika','Padukone','Shoojit','Sircar'),
+(16,'Salman','Khan','Sonakshi','Sinha','Abhinav','Kashyap'),
+(17,'Akshay','Kumar','Katrina','Kaif','Farah','Khan'),
+(18,'Amitabh','Bachchan','Rani','Mukherji','Karan','Johar'),
+(19,'Farhan','Akhtar','Konkonsen','Sharma','Zoya','Akhtar'),
+(20,'Hrithik','Roshan','Aishwarya','Rai','Ashutosh','Gowarikar'),
+(21,'Abhishek','Bachchan','Pretiy','Zinta','Adity','Chopra'),
+(22,'Aamir','Khan','null','null','Amir','Khan'),
+(23,'Johan','Abraham','Priyanka','Chopra','Tarun','Mansukhani'),
+(24,'Aamir','Khan','Soha ali','Khan','Omprakash','Mehra'),
+(25,'Manoj','Bajpayee','Reema','Sen','Anurag','Kashyap'),
+(26,'Shahrukh','Khan','Deepika','Padukone','Farah','Khan'),
+(27,'Hrithik','Roshan','Priyanka','Chopra','Karan','Malhotra'),
+(28,'Aamir','Khan','Asin','Thottumka','A.R','Murugadoss'),
+(29,'Ranbir','Kapoor','Priyanka,Iiena',"Chopra,D'cruz",'Anurag','Basu'),
+(30,'Salman','Khan','Daisy','Shah','Sohail','Khan'),
+(31,'Akshay','Kumar','Sonakshi','sinha','Prabhu','Deva'),
+(32,'Shahrukh','Khan','Katrina','Khan','Yash','Chopra'),
+(33,'Rajinikant','null','Aishwarya','Rai','S.','Shankar'),
+(34,'Salman','Khan','Katrina','Kaif','Kabir','Khan'),
+(35,'Saif','Khan','Sonakshi','Sinha','Tigmanshu','Dhuila'),
+(36,'Amitabh','Bachchan','Akshara','Haasan','R.','Balki'),
+(38,'Shahid','Kapoor','Shraddha','Kapoor','Vishal','Bhardwaj'),
+(39,'Ranbir','Kapoor','Deepika','Padukone','Ayan','Mukherjee'),
+(40,'null','null','Rani,Vidya','Mukherji,Balan','Rajkumar','Gupta'),
+(41,'Dhanush','null','Sonam','Kapoor','Aanand','Rai'),
+(42,'Hrithik','Roshan','Aishwary','Rai','Sanjay','Gadhvi'),
+(43,'null','null','Rani','Mukherji','pradeep','Sarkar'),
+(44,'Aamir','Khan','Katrian','Kaif','Vijay','Acharya'),
+(45,'Vivek','Oberoi','Aishwarya','Rai','Samir','Karnik');
+  
+
+
+
+
+Q1.Title and Rating table:- 
+Ans :- select Title,Rating from movie m join reviews re on m.id=re.Movie_Id order by Title;
+
+
+Q2.Title and Avg(rating) table:-
+Ans:- select Title , round(avg(Rating),2)as average from movie m join reviews re on m.id = re.Movie_Id group by m.id order by average;
+
+Q3.First_name,Last_name and rating:- 
+ans:- select First_Name,Last_Name,Rating from reviewer as r join reviews re on r.id = re.Reviewer_Id;
+
+Q4.Indentifying the unreveled series (nobody written reviews)?
+
+ans:- select Title,Rating from movie m join reviews r on m.id = r.Movie_Id where rating is null;
+
+Q5.genre and rating average?
+
+Ans:- select genre,round(avg(rating)) as avg_rating from movie m join reviews r on m.Id = r.Movie_Id group by Genre;
+
+
+Q6. All three table together?
+
+Ans:-
+select title,Rating,concat(First_Name,' ',Last_Name) as full_name from reviewer r join reviews re on r.id = re.reviewer_id
+join movie m
+on m.id=re.Movie_Id
+order by title;  
+
