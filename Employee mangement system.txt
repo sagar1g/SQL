@@ -1,0 +1,122 @@
+SQL PROJECT
+-----------------------------------------------------------------------------------------------------------------------
+create database emp;
+
+use emp;
+
+----------------------------------------------------
+Employee
+---------------------------------------------------
+CREATE TABLE Employee(
+  Employee_Id int primary key auto_increment,
+  First_Name VARCHAR(25),
+  Last_Name VARCHAR(25),
+  Hire_Date DATE,
+  City VARCHAR(25),
+  State VARCHAR(25)
+  );
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+----------------------------------------------------
+Department
+---------------------------------------------------
+  CREATE TABLE Department(
+  Department_Id int primary key auto_increment,
+  empolyee_id int,
+  Department_Name VARCHAR(30),
+  foreign key (empolyee_id) references Employee(Employee_Id)
+  );
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------
+Salary
+----  --------------------------------------------------
+  
+  CREATE TABLE Salary(
+  Salary_Id int primary key auto_increment,
+  Gross_Salary double,
+  Hourly_Pay double,
+  State_Tax double,
+  empolyee_id int,
+  FOREIGN KEY (empolyee_id)
+        REFERENCES Employee(Employee_Id));
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------
+Education
+  ---------------------------------------------------
+  CREATE TABLE Education(
+  Education_Id int primary key auto_increment,
+  Employee_Id int,
+  Degree VARCHAR(30),
+  Graduation_Year year(4),
+  FOREIGN KEY (Employee_Id)
+        REFERENCES Employee(Employee_Id)
+  );
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+INSERT INTO Employee(First_Name,Last_Name,Hire_Date,City,State) VALUES ('Ojas','Phansekar','2016-04-16',,'Thane','Maharashtra',1);
+INSERT INTO Employee(First_Name,Last_Name,Hire_Date,City,State) VALUES ('Vrushali','Patil','2018-06-18','Mirajapur','UP');
+INSERT INTO Employee(First_Name,Last_Name,Hire_Date,City,State) VALUES ('Pratik','Parija','2019-08-13','Delhi','Delhi');
+INSERT INTO Employee(First_Name,Last_Name,Hire_Date,City,State) VALUES ('Chetan','Mistry','2012-04-12','Mumbai','Maharashtra');
+INSERT INTO Employee(First_Name,Last_Name,Hire_Date,City,State) VALUES ('Anugraha','Varkey','2017-08-17','Panchkula','Haryana');
+INSERT INTO Employee(First_Name,Last_Name,Hire_Date,City,State) VALUES ('Rasagnya','Reddy','2018-07-25','Agra','UP');
+INSERT INTO Employee(First_Name,Last_Name,Hire_Date,City,State) VALUES ('Aishwarya','Boralkar','2010-12-27','Nagpur','Maharashtra');
+INSERT INTO Employee(First_Name,Last_Name,Hire_Date,City,State) VALUES ('Shantanu','Savant','2015-11-15','Pune','Maharashtra');
+INSERT INTO Employee(First_Name,Last_Name,Hire_Date,City,State) VALUES ('Kalpita','Malvankar','2016-08-13','Hydrabad','Andra pradesh');
+INSERT INTO Employee(First_Name,Last_Name,Hire_Date,City,State) VALUES ('Saylee','Bhagat','2014-03-14','Surat','Gujarat');
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO Department(empolyee_id, Department_Name) VALUES (1,'Human Resources');
+INSERT INTO Department(empolyee_id, Department_Name) VALUES (2,'Software Development');
+INSERT INTO Department(empolyee_id, Department_Name) VALUES (3,'Data Analysis');
+INSERT INTO Department(empolyee_id, Department_Name) VALUES (4,'Data Science');
+INSERT INTO Department(empolyee_id, Department_Name) VALUES (5,'Business Intelligence');
+INSERT INTO Department(empolyee_id, Department_Name) VALUES (6,'Data Engineering');
+INSERT INTO Department(empolyee_id, Department_Name) VALUES (7,'Manufacturing');
+INSERT INTO Department(empolyee_id, Department_Name) VALUES (8,'Quality Control');
+INSERT INTO Department(empolyee_id, Department_Name) VALUES (9,'Data Science');
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO Salary(empolyee_id,Gross_Salary,Hourly_Pay,State_Tax) VALUES (1,57600,30,200);
+INSERT INTO Salary(empolyee_id,Gross_Salary,Hourly_Pay,State_Tax) VALUES (2,76800,40,300);
+INSERT INTO Salary(empolyee_id,Gross_Salary,Hourly_Pay,State_Tax) VALUES (3,96000,50,400);
+INSERT INTO Salary(empolyee_id,Gross_Salary,Hourly_Pay,State_Tax) VALUES (4,115200,60,500);
+INSERT INTO Salary(empolyee_id,Gross_Salary,Hourly_Pay,State_Tax) VALUES (5,57600,30,200);
+INSERT INTO Salary(empolyee_id,Gross_Salary,Hourly_Pay,State_Tax) VALUES (6,76800,40,300);
+INSERT INTO Salary(empolyee_id,Gross_Salary,Hourly_Pay,State_Tax) VALUES (7,96000,50,400);
+INSERT INTO Salary(empolyee_id,Gross_Salary,Hourly_Pay,State_Tax) VALUES (8,115200,60,500);
+INSERT INTO Salary(empolyee_id,Gross_Salary,Hourly_Pay,State_Tax) VALUES (9,57600,30,200);
+INSERT INTO Salary(empolyee_id,Gross_Salary,Hourly_Pay,State_Tax) VALUES (1,76800,40,300);
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO Education(Employee_Id,Degree,Graduation_Year) VALUES (1,'MS',2017);
+INSERT INTO Education(Employee_Id,Degree,Graduation_Year) VALUES (2,'MS',2019);
+INSERT INTO Education(Employee_Id,Degree,Graduation_Year) VALUES (1,'MS',2011);
+INSERT INTO Education(Employee_Id,Degree,Graduation_Year) VALUES (3,'MS',2015);
+INSERT INTO Education(Employee_Id,Degree,Graduation_Year) VALUES (4,'Bachelor',2013);
+INSERT INTO Education(Employee_Id,Degree,Graduation_Year) VALUES (6,'Bachelor',2008);
+INSERT INTO Education(Employee_Id,Degree,Graduation_Year) VALUES (7,'Bachelor',2010);
+INSERT INTO Education(Employee_Id,Degree,Graduation_Year) VALUES (8,'COMMERCE',2020);
+INSERT INTO Education(Employee_Id,Degree,Graduation_Year) VALUES (9,'BSC-IT',2004);
+INSERT INTO Education(Employee_Id,Degree,Graduation_Year) VALUES (2,'ARTS',2000);
+INSERT INTO Education(Employee_Id,Degree,Graduation_Year) VALUES (10,'BE-TECH',2009);
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
